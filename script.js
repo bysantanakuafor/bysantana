@@ -1,5 +1,5 @@
 // En son aldığın güncel Google Apps Script Web Uygulaması URL'si
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbys8Pp35pzk6mcSfleUHEwRMQKm_8M9R3CpH94BEeVbqOTxw9x_wVQVJP8LiGET02Q/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxJuIrgGwLEWDGnGXra8cJ7gFCXilzTEoNxiPQLJKHQNKSsP_HhOODU1l0NZjq2bRJR/exec";
 
 // Sabit saat listesi (12:00 - 18:30 arası yarım saatte bir)
 const TUM_SAATLER = [
