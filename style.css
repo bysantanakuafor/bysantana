@@ -1,0 +1,237 @@
+:root {
+--bg-dark: #121212;
+--card-bg: #1c1c1e;
+--gold: #d4af37;
+--gold-hover: #f3cf65;
+--text-white: #ffffff;
+--text-muted: #a1a1aa;
+--border: #2c2c2e;
+}
+
+body {
+background-color: var(--bg-dark);
+color: var(--text-white);
+font-family: 'Poppins', sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+background-image: radial-gradient(circle at 50% 15%, #2a2415 0%, #121212 70%);
+}
+
+.luxury-container {
+width: 100%;
+max-width: 550px;
+padding: 20px;
+}
+
+.brand-header {
+text-align: center;
+margin: 40px 0;
+}
+
+.brand-title {
+font-family: 'Cinzel', serif;
+font-size: 3rem;
+letter-spacing: 4px;
+color: var(--gold);
+margin: 0;
+}
+
+.brand-subtitle {
+font-size: 0.9rem;
+letter-spacing: 2px;
+color: var(--text-muted);
+text-transform: uppercase;
+}
+
+.luxury-card {
+background: var(--card-bg);
+border: 1px solid var(--border);
+border-radius: 20px;
+padding: 30px;
+box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+margin-bottom: 25px;
+}
+
+.section-title {
+font-family: 'Cinzel', serif;
+font-size: 1.5rem;
+text-align: center;
+margin-top: 0;
+margin-bottom: 25px;
+color: var(--gold);
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+margin-bottom: 20px;
+}
+
+.form-group label {
+font-size: 0.85rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: var(--text-muted);
+margin-bottom: 8px;
+}
+
+input, select {
+background: #252527;
+border: 1px solid var(--border);
+color: white;
+padding: 12px;
+border-radius: 10px;
+font-size: 1rem;
+transition: 0.3s;
+}
+
+input:focus, select:focus {
+border-color: var(--gold);
+outline: none;
+}
+
+/* Saat Seçim Bölümü (Grid) */
+.slots-container {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+margin-top: 5px;
+}
+
+.slot-btn {
+background: #252527;
+border: 1px solid var(--border);
+color: white;
+padding: 10px;
+border-radius: 8px;
+cursor: pointer;
+font-weight: 600;
+transition: 0.2s;
+}
+
+.slot-btn:hover {
+border-color: var(--gold);
+}
+
+.slot-btn.selected {
+background: var(--gold);
+color: black;
+border-color: var(--gold);
+}
+
+.slot-btn.disabled {
+background: #1a1a1c;
+color: #444;
+border-color: #1a1a1c;
+cursor: not-allowed;
+text-decoration: line-through;
+}
+
+.btn-gold {
+width: 100%;
+background: var(--gold);
+color: black;
+border: none;
+padding: 15px;
+border-radius: 12px;
+font-size: 1.1rem;
+font-weight: 600;
+cursor: pointer;
+transition: 0.3s;
+margin-top: 10px;
+}
+
+.btn-gold:hover { background: var(--gold-hover); }
+
+/* Admin Alanı */
+.admin-card { cursor: pointer; text-align: center; }
+.hidden { display: none !important; }
+.btn-gold-small { background: var(--gold); border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;}
+
+.table-responsive { overflow-x: auto; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;}
+th, td { padding: 10px; border-bottom: 1px solid var(--border); }
+th { color: var(--gold); }
+
+.btn-approve { background: #22c55e; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; margin-right: 2px;}
+.btn-reject { background: #ef4444; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; }
+
+.brand-footer { text-align: center; margin-top: 40px; color: var(--text-muted); font-size: 0.85rem; }
+.brand-footer a { color: var(--gold); text-decoration: none; }
+
+/* --- YÖNETİM PANELİ MOBİL VE PC UYUMLULUK AYARLARI --- */
+
+#admin-dashboard {
+width: 100%;
+overflow-x: hidden;
+padding: 10px;
+}
+
+.admin-table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 15px;
+}
+
+/* Mobil Cihazlar İçin Gelişmiş Responsive Tablo Yapısı */
+@media screen and (max-width: 768px) {
+.admin-table, .admin-table thead, .admin-table tbody, .admin-table th, .admin-table td, .admin-table tr {
+display: block;
+}
+
+/* Başlıkları gizle (kart sistemine geçiyoruz) */
+.admin-table thead tr {
+position: absolute;
+top: -9999px;
+left: -9999px;
+}
+
+.admin-table tr {
+background: #27272a;
+border: 1px solid #3f3f46;
+border-radius: 8px;
+margin-bottom: 15px;
+padding: 8px;
+}
+
+.admin-table td {
+border: none;
+border-bottom: 1px solid #3f3f46;
+position: relative;
+padding-left: 45% !important;
+text-align: right !important;
+font-size: 14px;
+min-height: 35px;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+
+.admin-table td:last-child {
+border-bottom: 0;
+}
+
+/* Sol tarafa başlıkları yerleştir */
+.admin-table td:before {
+position: absolute;
+left: 10px;
+width: 40%;
+padding-right: 10px;
+white-space: nowrap;
+text-align: left;
+font-weight: bold;
+color: #d4af37; /* Gold rengi başlıklar */
+content: attr(data-label);
+}
+
+/* Butonları mobilde yan yana düzgünce sığdır */
+.btn-approve, .btn-reject {
+padding: 6px 12px !important;
+font-size: 12px !important;
+margin-left: 5px;
+display: inline-block;
+width: auto !important;
+}
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>By Santana | Premium Hair Design</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 🌌 PREMIUM GİRİŞ & MÜŞTERİ EKRANI -->
+<div class="luxury-container">
+
+<header class="brand-header">
+<h1 class="brand-title">BY SANTANA</h1>
+<p class="brand-subtitle">Premium Hair Design & Barber</p>
+</header>
+
+<!-- MÜŞTERİ RANDEVU PANELİ -->
+<main id="booking-section" class="luxury-card">
+<h2 class="section-title">Online Rezervasyon</h2>
+
+<form id="appointment-form" onsubmit="olusturTalep(event)">
+
+<!-- 1. Usta Seçimi -->
+<div class="form-group">
+<label>Stilist / Usta Seçimi</label>
+<select id="select-usta" onchange="guncelleKullanilabilirSaatler()" required>
+<option value="" disabled selected>Usta Seçiniz...</option>
+<option value="Ünsal Bey">Ünsal Bey</option>
+<option value="Kamil Bey">Kamil Bey</option>
+<option value="Cihan Bey">Cihan Bey</option>
+<option value="Barış Bey">Barış Bey</option>
+</select>
+</div>
+
+<!-- 2. Gün Seçimi (3 Gün Sınırı) -->
+<div class="form-group">
+<label>Tarih Seçimi</label>
+<select id="select-tarih" onchange="guncelleKullanilabilirSaatler()" required></select>
+</div>
+
+<!-- 3. Saat Seçimi Grid Yapısı -->
+<div class="form-group">
+<label>Uygun Randevu Saatleri</label>
+<div id="slots-grid" class="slots-container">
+<!-- Saat butonları JavaScript ile buraya dinamik dizilecek -->
+</div>
+</div>
+
+<!-- 4. Müşteri Bilgileri -->
+<div class="form-group">
+<label>Adınız Soyadınız</label>
+<input type="text" id="client-name" placeholder="Ahmet Yılmaz" required>
+</div>
+
+<div class="form-group">
+<label>Telefon Numaranız</label>
+<input type="tel" id="client-phone" placeholder="05XX XXX XX XX" required>
+</div>
+
+<button type="submit" class="btn-gold">Randevu Talebi Gönder</button>
+</form>
+</main>
+
+<!-- 🔒 ADMİN PANEL GİRİŞİ -->
+<section id="admin-section" class="luxury-card admin-card">
+<h3 class="section-title" onclick="toggleAdminPanel()">👑 Yönetim Paneli</h3>
+<div id="admin-login-form" class="hidden">
+<input type="password" id="admin-pass" placeholder="Usta Giriş Şifresi">
+<button onclick="loginAdmin()" class="btn-gold-small">Giriş</button>
+</div>
+
+<!-- ADMİN YÖNETİM EKRANI (BAŞLANGIÇTA GİZLİ) -->
+<div id="admin-dashboard" class="hidden">
+<h4>Gelen Randevu Talepleri</h4>
+<div class="table-responsive">
+<table>
+<thead>
+<tr>
+<th>Tarih/Saat</th>
+<th>Usta</th>
+<th>Müşteri</th>
+<th>Telefon</th>
+<th>Durum</th>
+<th>Aksiyon</th>
+</tr>
+</thead>
+<tbody id="admin-table-body">
+<!-- Veriler dinamik listelenecek -->
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- 📍 İLETİŞİM & ADRES (PENDİK) -->
+<footer class="brand-footer">
+<div class="info-box">
+<p><strong>📍 Adres:</strong> Batı, Dağ Çiçeği Sokağı No:4, 34890 Pendik/İstanbul</p>
+<p><strong>📞 İletişim:</strong> <a href="tel:05372053200">0537 205 32 00</a></p>
+</div>
+<p class="copyright">&copy; 2026 By Santana. All Rights Reserved.</p>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+<!-- Başarılı Randevu Onay Ekranı (Pop-up) -->
+<div id="success-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center;">
+<div style="background: #1c1c1e; border: 2px solid #d4af37; padding: 30px; border-radius: 12px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+<div style="font-size: 50px; color: #22c55e; margin-bottom: 15px;">✓</div>
+<h3 style="color: #d4af37; font-size: 22px; margin-bottom: 10px; font-family: sans-serif;">Randevu Talebiniz Alındı!</h3>
+<p style="color: #e4e4e7; font-size: 14px; margin-bottom: 20px; line-height: 1.5;">Ustalarımız talebinizi kontrol ettikten sonra randevunuz kesinleşecektir. Sizi dükkanımızda ağırlamak için sabırsızlanıyoruz.</p>
+<button onclick="kapatSuccessModal()" style="background: #d4af37; color: #1c1c1e; border: none; padding: 10px 25px; font-weight: bold; border-radius: 6px; cursor: pointer; width: 100%; font-size: 15px;">Kapat ve Ana Sayfaya Dön</button>
+</div>
+</div>
+</body>
+</html>
